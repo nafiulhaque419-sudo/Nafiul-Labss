@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+  <body>
+    <h1>Geometry Calculator</h1>
+    <button id="back">back</button>
+    
+    <div class="tabs">
+      <div class="twoD tab active">2D Shapes</div>
+      <div class="threeD tab">3D Shapes</div>
+    </div>
+    
+    <div class="input_2d">
+      <button id="circleBtn">Circle</button>
+      <button id="squareBtn">Sqare</button>
+      <button id="rectangleBtn">Rectangle</button>
+      <button id="triangleBtn">Triangle</button>
+    </div>
+    
+    <div class="input_3d">
+      <button id="cubeBtn">Cube</button>
+      <button id="cuboidBtn">Cuboid</button>
+      <button id="sphereBtn">Sphere</button>
+      <button id="hemisphereBtn">Hemisphere</button>
+      <button id="cylinderBtn">Cylinder</button>
+      <button id="coneBtn">Cone</button>
+    </div>
+    
+    <div id="display"></div>
+    
+    <div class="shapes" id="circle">
+      <input id="circle_radius" type="text" placeholder="Radius (r) ">
+      <input id="circle_diameter" type="text" placeholder="Diameter (d) ">
+    </div>
+      
+    <div class="shapes" id="square">
+      <input id="square_side" type="text" placeholder="Side">
+    </div>
+      
+    <div class="shapes" id="rectangle">
+      <input id="rectangle_length" type="text" placeholder="Length (l)">
+      <input id="rectangle_breadth" type="text" placeholder="Breadth (b)">
+    </div>
+      
+    <div class="shapes" id="triangle">
+      <input id="triangle_side_1" type="text" placeholder="Side 1">
+      <input id="triangle_side_2" type="text" placeholder="Side 2">
+      <input id="triangle_side_3" type="text" placeholder="Side 3">
+      <input id="triangle_height" type="text" placeholder="Height (h)">
+      <input id="triangle_base" type="text" placeholder="Base (b)">
+    </div>
+    
+    <div class="shapes" id="cube">
+      <input id="cube_side" type="text" placeholder="Side">
+    </div>
+    
+    <div class="shapes" id="cuboid">
+      <input id="cuboid_length" type="text" placeholder="Length (l)">
+      <input id="cuboid_breadth" type="text" placeholder="Breadth (b)">
+      <input id="cuboid_height" type="text" placeholder="Height (h)">
+    </div>
+    
+    <div class="shapes" id="sphere">
+      <input id="sphere_radius" type="text" placeholder="Radius (r)">
+      <input id="sphere_diameter" type="text" placeholder="Diameter (d) "> 
+    </div>
+    
+    <div class="shapes" id="hemisphere">
+      <input id="hemisphere_radius" type="text" placeholder="Radius (r)">
+      <input id="hemisphere_diameter" type="text" placeholder="Diameter (d) ">
+    </div>
+    
+    <div class="shapes" id="cylinder">
+      <input id="cylinder_radius" type="text" placeholder="Radius (r)">
+      <input id="cylinder_height" type="text" placeholder="Height (h)">
+    </div>
+    
+    <div class="shapes" id="cone">
+      <input id="cone_radius" type="text" placeholder="Radius (r)">
+      <input id="cone_height" type="text" placeholder="Height (h)">
+    </div>
+    <div class="buttons">
+      <button id="calculate">Calculate</button>
+      <button id="clear">Clear</button>
+    </div>
+    <h2>Select any shape</h2>
+    
+    <script src="app.js"></script>
+  </body>
+</html>

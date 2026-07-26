@@ -1,0 +1,153 @@
+ body{
+   margin: 10px;
+   padding: 0;
+   background: #0B1120;
+ }
+ 
+ h1{
+  color:#F8FAFC ;
+ }
+ 
+ h2{
+  color:#F8FAFC ;
+ }
+ 
+ pre{
+  color:#F8FAFC ;
+ }
+ 
+ .card{
+    width:350px;
+    background:#141824;
+    border:2px solid #2c3448;
+    border-radius:18px;
+    padding:20px;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    text-align:center;
+    gap:10px;
+    transition:.3s;
+    margin-top: 20px;
+}
+
+.card:hover{
+    transform:translateY(-8px);
+    border-color:#4f7cff;
+    box-shadow:0 10px 30px rgba(79,124,255,.3);
+}
+
+.icon{
+    width:70px;
+    height:70px;
+    background:#1f2638;
+    border-radius:50%;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    font-size:32px;
+}
+
+.card h2{
+    color:white;
+    font-size:1.3rem;
+}
+
+.card p{
+    color:#CBD5E1;
+    line-height:1.5;
+    font-size:.95rem;
+}
+
+.card a{
+    width:100%;
+    padding:12px;
+    border:none;
+    border-radius:10px;
+    background:#4f7cff;
+    color:white;
+    font-size:1rem;
+    cursor:pointer;
+    transition:.3s;
+    text-decoration: none;
+}
+
+.card button:hover{
+    background:#6a90ff;
+} 
+
+pre{
+  font-size: 20px;
+}
+ 
+ @media (max-width: 728px) {
+   .image{
+    width:100%;
+    max-width:420px;
+    height:auto;
+    object-fit:contain;
+
+   }
+ }
+ 
+ @media (min-width: 729px) and (max-width: 1024px) {
+   .hero{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:40px;
+    gap:30px;
+  }
+
+  .heroText{
+    width:50%;
+  }
+
+  .image{
+    width:320px;
+    height:auto;
+  }
+
+  .cards{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+     justify-items:center;
+     gap:25px;
+     padding:30px;
+   }
+
+   .card{
+    width:280px;
+   }
+ }
+ 
+ @media (min-width: 1025px) {
+   .hero{
+     display:flex;
+     justify-content:space-between;
+     align-items:center;
+     padding:60px 80px;
+     gap:50px;
+   }
+
+   .heroText{
+     width:50%;
+   }
+
+   .image{
+     width:420px;
+     height:auto;
+   }
+
+   .cards{
+     display:grid;
+     grid-template-columns:repeat(3,1fr);
+     justify-items:center;
+     gap:35px;
+     padding:50px;
+   }
+
+   .card{
+     width:300px;
+   }
+ }

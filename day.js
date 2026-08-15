@@ -4,8 +4,16 @@ const display=document.querySelector("#day");
 function getValues(date, year, month){
   let k=parseFloat(date);
   let m=parseFloat(month);
+
+  if(m===11 || m===12){
+    year=parseFloat(year);
+    year--;
+    year=String(year);
+  }
+  
   let d=parseFloat(year.slice(year.length-2));
   let c;
+  
   if(year.length<3){
     c=0;
   }else{

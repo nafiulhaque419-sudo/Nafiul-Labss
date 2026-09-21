@@ -11,6 +11,10 @@ const circleBtn=document.querySelector("#circleBtn");
 const squareBtn=document.querySelector("#squareBtn");
 const rectangleBtn=document.querySelector("#rectangleBtn");
 const triangleBtn=document.querySelector("#triangleBtn");
+const sectorBtn=document.querySelector("#sectorBtn");
+const segmentBtn=document.querySelector("#segmentBtn");
+const trapeziumBtn=document.querySelector("#trapeziumBtn");
+const poligeonBtn=document.querySelector("#poligeonBtn");
 
 // 3D buttons
 const cubeBtn=document.querySelector("#cubeBtn");
@@ -25,6 +29,10 @@ const circle=document.querySelector("#circle");
 const square=document.querySelector("#square");
 const rectangle=document.querySelector("#rectangle");
 const triangle=document.querySelector("#triangle");
+const sector=document.querySelector("#sector");
+const segment=document.querySelector("#segment");
+const trapezium=document.querySelector("#trapezium");
+const poligeon=document.querySelector("#poligeon");
 
 // 3D inputs
 const cube=document.querySelector("#cube");
@@ -42,10 +50,14 @@ const shapes=document.querySelectorAll(".shapes");
 
 const cal=document.querySelector("#calculate");
 const clear=document.querySelector("#clear");
-const text=document.querySelector("h2");
+const text=document.querySelectorAll("h2");
 const buttons=document.querySelector(".buttons");
 const back=document.querySelector("#back");
 const display=document.querySelector("#display");
+const confirm=document.querySelector("#confirm");
+const pointIn=document.querySelector("#point_In");
+const guide = document.querySelector("#guide");
+
 
 function changeUI(){
   input_2D.style.display="none";
@@ -55,7 +67,10 @@ function changeUI(){
   three_D.style.display="none";
   
   display.style.display="block";
-  text.style.display="none";
+  
+  for(let t of text){
+    t.style.display="none";
+  }
   
   buttons.classList.add("buttons-active");
   
@@ -78,6 +93,8 @@ three_D.addEventListener("click", ()=>{
   input_2D.style.display="none";
 });
 
+// circle 
+
 circleBtn.addEventListener("click", ()=>{
   for(let shape of shapes){
     shape.classList.remove("active-module");
@@ -89,6 +106,8 @@ circleBtn.addEventListener("click", ()=>{
   
   curr="circle";
 });
+
+// square 
 
 squareBtn.addEventListener("click", ()=>{
   for(let shape of shapes){
@@ -102,6 +121,8 @@ squareBtn.addEventListener("click", ()=>{
   curr="square";
 });
 
+// rectangle 
+
 rectangleBtn.addEventListener("click", ()=>{
   for(let shape of shapes){
     shape.classList.remove("active-module");
@@ -113,6 +134,8 @@ rectangleBtn.addEventListener("click", ()=>{
   
   curr="rectangle";
 });
+
+// triangle 
 
 triangleBtn.addEventListener("click", ()=>{
   for(let shape of shapes){
@@ -126,6 +149,96 @@ triangleBtn.addEventListener("click", ()=>{
   curr="triangle";
 });
 
+// Sector
+
+sectorBtn.addEventListener("click", ()=>{
+  for(let shape of shapes){
+    shape.classList.remove("active-module");
+  }
+  
+  sector.classList.add("active-module");
+  
+  changeUI();
+  
+  curr="sector";
+});
+
+// segment 
+
+segmentBtn.addEventListener("click", ()=>{
+  for(let shape of shapes){
+    shape.classList.remove("active-module");
+  }
+  
+  segment.classList.add("active-module");
+  
+  changeUI();
+  
+  curr="segment";
+});
+
+// Trapezium 
+
+trapeziumBtn.addEventListener("click", ()=>{
+  for(let shape of shapes){
+    shape.classList.remove("active-module");
+  }
+  
+  trapezium.classList.add("active-module");
+  
+  changeUI();
+  
+  curr="trapezium";
+});
+
+// Polygon 
+
+poligeonBtn.addEventListener("click", ()=>{
+  for(let shape of shapes){
+    shape.classList.remove("active-module");
+  }
+  
+  poligeon.classList.add("active-module");
+  
+  changeUI();
+  
+  curr="poligeon";
+});
+
+confirm.addEventListener("click", ()=>{
+  pointIn.innerHTML="";
+  guide.style.display="block";
+  let count= parseFloat(document.querySelector("#side_num").value)
+  
+  if(count<3){
+    return;
+  }
+  
+  for(let i=0; i<count; i++){
+    
+    let x=document.createElement("input");
+    
+    let y=document.createElement("input"); 
+    x.type="number";
+    y.type="number";
+    
+    x.classList.add("x_cor");
+    y.classList.add("y_cor"); 
+    
+    x.placeholder=`point ${i+1} x coordinate: `
+    y.placeholder=`point ${i+1} y coordinate: ` 
+    
+    pointIn.appendChild(x);
+    pointIn.appendChild(y); 
+    pointIn.appendChild(document.createElement("br"));
+  }
+  
+  confirm.style.display="none";
+  document.querySelector("#side_num").style.display="none";
+});
+
+// cube 
+
 cubeBtn.addEventListener("click", ()=>{
   for(let shape of shapes){
     shape.classList.remove("active-module");
@@ -137,6 +250,8 @@ cubeBtn.addEventListener("click", ()=>{
   
   curr="cube";
 });
+
+// cuboid 
 
 cuboidBtn.addEventListener("click", ()=>{
   for(let shape of shapes){
@@ -150,6 +265,8 @@ cuboidBtn.addEventListener("click", ()=>{
   curr="cuboid";
 });
 
+// sphere 
+
 sphereBtn.addEventListener("click", ()=>{
   for(let shape of shapes){
     shape.classList.remove("active-module");
@@ -161,6 +278,8 @@ sphereBtn.addEventListener("click", ()=>{
   
   curr="sphere";
 });
+
+// hemisphere 
 
 hemisphereBtn.addEventListener("click", ()=>{
   for(let shape of shapes){
@@ -174,6 +293,8 @@ hemisphereBtn.addEventListener("click", ()=>{
   curr="hemisphere";
 });
 
+// cylinder 
+
 cylinderBtn.addEventListener("click", ()=>{
   for(let shape of shapes){
     shape.classList.remove("active-module");
@@ -185,6 +306,8 @@ cylinderBtn.addEventListener("click", ()=>{
   
   curr="cylinder";
 });
+
+// cone
 
 coneBtn.addEventListener("click", ()=>{
   for(let shape of shapes){
@@ -209,8 +332,9 @@ back.addEventListener("click", ()=>{
   three_D.style.display="block";
   
   display.style.display="none";
-  text.style.display="inline";
-  
+  for (let t of text) {
+    t.style.display = "inline";
+  }
   buttons.classList.remove("buttons-active");
   
   back.style.display="none";
@@ -259,19 +383,103 @@ function calRectangle(length, breadth){
 
 function calTriangle(side_1, side_2, side_3, height, base){
   
+  if((side_1+side_2)<=side_3 || (side_2+side_3)<=side_1  || (side_3+side_1)<=side_2){
+    display.innerText="Inconsistent values";
+      return;
+  }
+  
   const perimeter=(side_1+side_2+side_3).toFixed(2);
   
-  let area=0;
+  let area;
   
-  if(isNaN(height) && isNaN(base)){
-    let s=perimeter/2;
+  let area1;
+  let area2;
+  
+  let s=perimeter/2;
     
-    area=(Math.sqrt(s*(s-side_1)*(s-side_2)*(s-side_3))).toFixed(2);
+  area1=(Math.sqrt(s*(s-side_1)*(s-side_2)*(s-side_3))).toFixed(2);
+  
+  
+  area2=((1/2)*height*base).toFixed(2);
+  
+  if(!(isNaN(side_1) || isNaN(side_2) || isNaN(side_3) || isNaN(height) || isNaN(base))){
+    
+    if(Math.abs(area1 - area2) > 0.000001){
+      display.innerText="Inconsistent values";
+      return;
+    }
+  }
+  
+  if(!isNaN(area1)){
+    area=area1;
   }else{
-    area=((1/2)*height*base).toFixed(2);
+    area=area2;
   }
   
   return{
+    perimeter,
+    area
+  };
+}
+
+function calSector(radius, angle) {
+  const perimeter=(angle/360*2*Math.PI*radius+2*radius).toFixed(2);
+  
+  const area=(angle/360*Math.PI*radius*radius).toFixed(2);
+  
+  return{
+    perimeter,
+    area
+  };
+}
+
+function calSegment(radius, angle, chord) {
+  const perimeter=(angle/360*2*Math.PI*radius+chord).toFixed(2);
+  
+  const area=(angle/360*Math.PI*radius*radius-(chord/4*Math.sqrt(4*radius**2-chord**2))).toFixed(2);
+  
+  return{
+    perimeter,
+    area
+  };
+}
+
+function calTrapezium(p1, p2, h) {
+  const area=(1/2*(p1+p2)*h).toFixed(2);
+  
+  return area;
+}
+
+function calDist(x1, y1, x2, y2) {
+  return Math.sqrt((x1-x2)**2+(y1-y2)**2);
+}
+
+function calPolygon(xcor, ycor) {
+  
+  let perimeter=calDist(xcor[xcor.length-1], ycor[ycor.length-1], xcor[0], ycor[0]);
+  
+  for(let i=1; i<xcor.length; i++){
+    let p=calDist(xcor[i-1], ycor[i-1], xcor[i], ycor[i]);
+    perimeter+=p;
+  }
+  perimeter=perimeter.toFixed(2);
+  
+  let sum1=xcor[xcor.length-1]*ycor[0];
+  let sum2=ycor[ycor.length-1]*xcor[0]; 
+  
+  for(let i=1; i<xcor.length; i++){
+    let temp1=xcor[i-1]*ycor[i];
+    let temp2=ycor[i-1]*xcor[i];
+    
+    sum1+=temp1;
+    sum2+=temp2;
+  }
+  
+  let area=(Math.abs(sum1-sum2)/2).toFixed(2);
+  
+  
+  
+  return {
     perimeter,
     area
   };
@@ -423,8 +631,86 @@ function calculate(){
       
       data=calTriangle(side_1, side_2, side_3, height, base);
       
+      if(isNaN(side_1) ||  isNaN(side_2) ||  isNaN(side_3)){
+        display.innerHTML=`Area = ${data.area}`;
+        return ;
+      }
+      
       return data;
-
+    
+    case "sector":
+      
+      var radius=parseFloat(document.querySelector("#sector_radius").value);
+      
+      var angle=parseFloat(document.querySelector("#sector_angle").value); 
+      if(isNaN(radius) || isNaN(angle)){
+        display.innerText="Please Enter the value of radius and angle";
+        return;
+      }
+      
+      data=calSector(radius, angle);
+      
+      return data;
+      
+    case "segment":
+      
+      var radius=parseFloat(document.querySelector("#segment_radius").value);
+      
+      var angle=parseFloat(document.querySelector("#segment_angle").value); 
+      
+      var chord=parseFloat(document.querySelector("#segment_chord").value);
+      
+      if(isNaN(radius) || isNaN(angle) || isNaN(chord)){
+        display.innerText="Please Enter the value of radius, angle and chord";
+        return;
+      }
+      
+      data=calSegment(radius, angle, chord);
+      
+      if(data.area<0 || isNaN(data.area)){
+        display.innerText="Inconsistent values";
+        return;
+      }
+      
+      return data; 
+    
+    case "trapezium":
+      
+      var p1=parseFloat(document.querySelector("#trapezium_p1").value);
+      
+      var p2=parseFloat(document.querySelector("#trapezium_p2").value); 
+      
+      var h=parseFloat(document.querySelector("#trapezium_height").value);
+      
+      if(isNaN(p1) || isNaN(p2) || isNaN(h)){
+        display.innerText="Please Enter the values of parellal sides and height";
+        return;
+      }
+      
+      data=calTrapezium(p1, p2, h);
+      
+      return data; 
+      
+    case "poligeon" :
+      
+      const xs=document.querySelectorAll(".x_cor");
+      const ys=document.querySelectorAll(".y_cor");
+      
+      let xcor=[];
+      let ycor=[];
+      
+      for(let i=0; i<xs.length; i++){
+        let x=parseFloat(xs[i].value);
+        let y=parseFloat(ys[i].value);
+        
+        xcor.push(x);
+        ycor.push(y);
+      }
+      
+      data=calPolygon(xcor, ycor);
+      
+      return data;
+      
     case "cube":
       var side=parseFloat(document.querySelector("#cube_side").value);
       
@@ -444,7 +730,7 @@ function calculate(){
       
       var height=parseFloat(document.querySelector("#cuboid_height").value);
       
-      if(isNaN(length) || isNaN(breadth)){
+      if(isNaN(length) || isNaN(breadth) || isNaN(height)){
         display.innerText="Please Enter length and breadth";
         return;
       }
@@ -540,10 +826,30 @@ function displayResult(data){
     display.innerHTML=`Perimeter = ${data.perimeter}<br><br>
     Area = ${data.area}`;
     break;
+  
+  case "sector":
+    display.innerHTML=`Perimeter = ${data.perimeter}<br><br>
+    Area = ${data.area}`;
+    break;
+
+  case "segment":
+    display.innerHTML=`Perimeter = ${data.perimeter}<br><br>
+    Area = ${data.area}`;
+    break;
+  
+  case "trapezium":
+    display.innerHTML=`
+    Area = ${data}`;
+    break; 
+  
+  case "poligeon":
+    display.innerHTML=`Perimeter = ${data.perimeter}<br><br>
+    Area = ${data.area}`;
+    break;
 
   case "cube":
     display.innerHTML=`Total Surface Area = ${data.totalSurfaceArea}<br><br>
-    Laterel Surface Area = ${data. laterelSurfaceArea}<br><br>
+    Laterel Surface Area = ${data.laterelSurfaceArea}<br><br>
     Volume = ${data.volume}`;
     break;
 

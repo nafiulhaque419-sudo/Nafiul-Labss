@@ -43,7 +43,8 @@ body{
   height: auto;
   border: 2px solid black;
   border-radius: 0.5rem;
-  font-size: 40px;
+  font-size: 25px;
+  font-weight: 500;
   margin-bottom: 20px;
 }
 
@@ -65,6 +66,7 @@ body{
 }
 
 input{
+    margin-top: 10px;
     width:80%;
     padding:15px 15px;
     font-size:16px;
@@ -88,21 +90,84 @@ input:focus{
 .buttons-active{
     display:flex;
     justify-content:center;
-    gap:20px;
+    gap:18px;
     margin-top:30px;
     flex-wrap:wrap;
 }
 
+/* Button */
 button{
+    position:relative;
     width:150px;
     height:48px;
+
     border:none;
-    border-radius:10px;
+    border-radius:12px;
+
     font-size:17px;
-    font-weight:bold;
+    font-weight:700;
+    color:white;
+
+    background:#4f46e5;
+
     cursor:pointer;
-    transition:.2s;
-    box-shadow:0 6px 15px rgba(79,70,229,.25);
+    overflow:hidden;
+
+    /* 3D bottom edge */
+    box-shadow:
+        0 5px 0 #3730a3,
+        0 8px 15px rgba(79,70,229,.25);
+
+    transition:
+        transform .15s ease,
+        box-shadow .15s ease,
+        background .2s ease;
+}
+
+/* Shiny light moving across button */
+button::before{
+    content:"";
+    position:absolute;
+    top:0;
+    left:-100%;
+
+    width:60%;
+    height:100%;
+
+    background:linear-gradient(
+        120deg,
+        transparent,
+        rgba(255,255,255,.25),
+        transparent
+    );
+
+    transform:skewX(-20deg);
+
+    transition:left .5s ease;
+}
+
+/* Hover */
+button:hover{
+    background:#5b52ee;
+
+    transform:translateY(-3px);
+
+    box-shadow:
+        0 8px 0 #3730a3,
+        0 13px 22px rgba(79,70,229,.30);
+}
+
+button:hover::before{
+    left:130%;
+}
+
+/* Click */
+button:active{
+    transform:translateY(3px);
+
+    box-shadow:
+        0 2px 0 #3730a3,
+        0 5px 10px rgba(79,70,229,.2);
 }
 
 .input_2d,

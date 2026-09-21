@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="geometry.css">
+    <link rel="stylesheet" href="style.css">
 </head>
   <body>
     <h1>Geometry Calculator</h1>
@@ -20,6 +20,10 @@
       <button id="squareBtn">Sqare</button>
       <button id="rectangleBtn">Rectangle</button>
       <button id="triangleBtn">Triangle</button>
+      <button id="sectorBtn">Sector</button>
+      <button id="segmentBtn">Segment</button> 
+      <button id="trapeziumBtn">Trapezium</button>
+      <button id="poligeonBtn">Any Poligeon</button> 
     </div>
     
     <div class="input_3d">
@@ -53,6 +57,33 @@
       <input id="triangle_side_3" type="text" placeholder="Side 3">
       <input id="triangle_height" type="text" placeholder="Height (h)">
       <input id="triangle_base" type="text" placeholder="Base (b)">
+    </div>
+    
+    <div class="shapes" id="sector">
+      <input id="sector_radius" type="text" placeholder="Radius (r) ">
+      <input id="sector_angle" type="text" placeholder="Angle">
+    </div>
+    
+    <div class="shapes" id="segment">
+      <input id="segment_radius" type="text" placeholder="Radius (r) ">
+      <input id="segment_angle" type="text" placeholder="Angle">
+      <input id="segment_chord" type="text" placeholder="Chord|| side_2+side_3<=side_1"> 
+    </div>
+    
+    <div class="shapes" id="trapezium">
+      <input id="trapezium_p1" type="text" placeholder="Parallel side 1 ">
+      <input id="trapezium_p2" type="text" placeholder="Parallel side 2">
+      <input id="trapezium_height" type="text" placeholder="Height (h)">
+    </div>
+    
+    <div class="shapes" id="poligeon">
+      <input id="side_num" type="number" placeholder="Enter number of sides" min="3">
+      
+      <button id="confirm">Confirm</button>
+      
+      <h2 id="guide">Enter coordinates of all points (input irrational numbers or fraction in their exact or approximate decimal value)</h2>
+      
+      <div id="point_In"></div> 
     </div>
     
     <div class="shapes" id="cube">
@@ -90,6 +121,6 @@
     </div>
     <h2>Select any shape</h2>
     
-    <script src="geometry.js"></script>
+    <script src="app.js"></script>
   </body>
 </html>

@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Atom Simulator</title>
+
+    <link rel="stylesheet" href="atom.css">
+</head>
+
+<body>
+
+    <header class="header">
+        <h1>Atom Simulator</h1>
+        <p>Explore the structure of an atom</p>
+    </header>
+
+    <main class="main">
+
+        <!-- Atom visualization area -->
+        <section class="atom-viewer">
+
+            <div class="scene">
+                <div class="atom" id="atom">
+
+                </div>
+            </div>
+
+        </section>
+
+        <!-- Element information -->
+        <section class="element-info">
+
+            <h2 id="element-name">Hydrogen</h2>
+
+            <p id="element-symbol">H</p>
+
+            <p>
+                Atomic Number:
+                <span id="atomic-number">1</span>
+            </p>
+
+            <p>
+              🔴 Protons:
+              <span id="pn">1</span>
+            </p>
+
+            <p>
+              🟣 Neutrons:
+              <span id="nn">0</span>
+            </p>
+
+            <p>
+              🔵 Electrons:
+              <span id="en">1</span>
+            </p>
+        </section>
+
+        <!-- Element navigation -->
+        <nav class="navigation" aria-label="Element navigation">
+
+            <button
+                class="nav-button"
+                id="previous-element"
+                type="button"
+                aria-label="Previous element"
+            >
+                ⬅️
+            </button>
+
+            <span id="element-counter">1 / 118</span>
+
+            <button
+                class="nav-button"
+                id="next-element"
+                type="button"
+                aria-label="Next element"
+            >
+                ➡️
+            </button>
+
+        </nav>
+
+    </main>
+
+    <script src="atom.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,415 @@
+/* =========================
+   1. GLOBAL STYLES
+========================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --background: #07111f;
+    --panel: #101f33;
+    --text: #f1f5f9;
+    --muted: #94a3b8;
+
+    --proton-color: #ff5252;
+    --neutron-color: #a78bfa;
+    --electron-color: #38bdf8;
+    --shell-color: rgba(56, 189, 248, 0.45);
+}
+
+body {
+    min-height: 100vh;
+    font-family: Arial, Helvetica, sans-serif;
+    background:var(--background);
+    color: var(--text);
+    overflow-x: hidden;
+}
+
+
+/* =========================
+   2. HEADER
+========================= */
+
+header {
+    text-align: center;
+    padding: 28px 15px 18px;
+}
+
+header h1 {
+    font-size: clamp(1.8rem, 5vw, 2.8rem);
+    letter-spacing: 1px;
+    color: #7dd3fc;
+    text-shadow: 0 0 18px rgba(56, 189, 248, 0.3);
+}
+
+header p {
+    margin-top: 10px;
+    color: var(--muted);
+    font-size: 1rem;
+}
+
+
+/* =========================
+   3. MAIN LAYOUT
+========================= */
+
+main {
+    width: 100%;
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 15px 16px 35px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 24px;
+}
+
+
+/* =========================
+   4. ATOM VIEWER
+========================= */
+
+.atom-viewer {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.scene {
+    position: relative;
+
+    width: min(100%, 360px);
+    aspect-ratio: 1 / 1;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    perspective: 900px;
+    overflow: visible;
+}
+
+
+/* =========================
+   5. ATOM CONTAINER
+========================= */
+
+.atom {
+    position: relative;
+
+    width: 100%;
+    height: 100%;
+
+    transform-style: preserve-3d;
+}
+
+
+/* =========================
+   6. NUCLEUS
+========================= */
+
+.nucleus {
+    position: absolute;
+
+    width: 100px;
+    height: 100px;
+
+    border-radius: 50%;
+
+    background: radial-gradient(
+        circle at 35% 30%,
+        rgba(255, 100, 100, 0.2),
+        rgba(255, 82, 82, 0.08)
+    );
+
+    box-shadow:
+        0 0 20px rgba(255, 82, 82, 0.2),
+        inset 0 0 15px rgba(255, 82, 82, 0.12);
+
+    transform-style: preserve-3d;
+}
+
+
+/* =========================
+   7. PROTONS
+========================= */
+
+.proton {
+    position: absolute;
+
+    width: 24px;
+    height: 24px;
+
+    border-radius: 50%;
+
+    background: radial-gradient(
+        circle at 30% 25%,
+        #ffaaaa,
+        #ff5252 55%,
+        #c62828
+    );
+
+    box-shadow:
+        0 0 8px rgba(255, 82, 82, 0.55),
+        inset -2px -3px 5px rgba(0, 0, 0, 0.25);
+
+    border: 1px solid rgba(255, 190, 190, 0.5);
+}
+
+
+/* =========================
+   8. NEUTRONS
+========================= */
+
+.neutron {
+    position: absolute;
+
+    width: 24px;
+    height: 24px;
+
+    border-radius: 50%;
+
+    background: radial-gradient(
+        circle at 30% 25%,
+        #ddd6fe,
+        #a78bfa 55%,
+        #6d28d9
+    );
+
+    box-shadow:
+        0 0 8px rgba(167, 139, 250, 0.5),
+        inset -2px -3px 5px rgba(0, 0, 0, 0.25);
+
+    border: 1px solid rgba(221, 214, 254, 0.5);
+}
+
+
+/* =========================
+   9. ELECTRON SHELLS
+========================= */
+
+.shell-wrapper {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+
+    transform-style: preserve-3d;
+}
+
+.shell {
+    position: relative;
+    width: 100%;
+    height: 100%;
+
+    border: 1px solid var(--shell-color);
+    border-radius: 50%;
+
+    transform-style: preserve-3d;
+    animation: orbit 10s linear infinite;
+}
+
+
+/* =========================
+   10. ELECTRONS
+========================= */
+
+.electron {
+    position: absolute;
+
+    width: 16px;
+    height: 16px;
+
+    border-radius: 50%;
+
+    background: radial-gradient(
+        circle at 30% 25%,
+        #e0f7ff,
+        #38bdf8 55%,
+        #0369a1
+    );
+
+    box-shadow:
+        0 0 10px rgba(56, 189, 248, 0.8),
+        0 0 20px rgba(56, 189, 248, 0.35);
+
+    border: 1px solid rgba(186, 230, 253, 0.8);
+}
+
+
+/* =========================
+   11. ELEMENT INFORMATION
+========================= */
+
+.element-info {
+    width: 100%;
+    max-width: 360px;
+
+    padding: 20px;
+
+    text-align: center;
+
+    background: rgba(16, 31, 51, 0.8);
+    border: 1px solid rgba(125, 211, 252, 0.15);
+    border-radius: 18px;
+
+    box-shadow: 0 10px 35px rgba(0, 0, 0, 0.2);
+    backdrop-filter: blur(10px);
+}
+
+.element-info h2 {
+    font-size: 1.7rem;
+    color: #7dd3fc;
+    margin-bottom: 8px;
+}
+
+.element-info p {
+    color: var(--muted);
+    margin-top: 8px;
+    line-height: 1.5;
+}
+
+.element-info span {
+    color: var(--text);
+    font-weight: bold;
+}
+
+
+/* =========================
+   12. NAVIGATION
+========================= */
+
+.navigation {
+    width: 100%;
+    max-width: 360px;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 12px;
+}
+
+.navigation button {
+    width: 52px;
+    height: 48px;
+
+    border: 1px solid rgba(125, 211, 252, 0.25);
+    border-radius: 14px;
+
+    background: var(--panel);
+    color: #7dd3fc;
+
+    font-size: 2rem;
+    cursor: pointer;
+
+    transition:
+        background 0.2s ease,
+        transform 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+.navigation button:hover {
+    background: #1d3552;
+    box-shadow: 0 0 15px rgba(56, 189, 248, 0.15);
+    transform: translateY(-2px);
+}
+
+.navigation button:active {
+    transform: scale(0.94);
+}
+
+.navigation button:focus-visible {
+    outline: 2px solid #7dd3fc;
+    outline-offset: 3px;
+}
+
+.element {
+    flex: 1;
+    text-align: center;
+
+    font-size: 1.1rem;
+    font-weight: bold;
+}
+
+.shell1 {
+    animation: orbit 10s linear infinite alternate;
+    transform-style: preserve-3d;
+}
+
+.shell2 {
+    animation: orbit 15s linear infinite alternate;
+    transform-style: preserve-3d;
+}
+
+.shell3 {
+    animation: orbit 20s linear infinite alternate;
+    transform-style: preserve-3d;
+}
+
+.shell4 {
+    animation: orbit 25s linear infinite alternate;
+    transform-style: preserve-3d;
+}
+
+.shell5 {
+    animation: orbit 30s linear infinite alternate;
+    transform-style: preserve-3d;
+}
+
+.shell6 {
+    animation: orbit 35s linear infinite alternate;
+    transform-style: preserve-3d;
+}
+
+.shell7 {
+    animation: orbit 40s linear infinite alternate;
+    transform-style: preserve-3d;
+}
+
+@keyframes orbit {
+    from {
+        transform: rotateY(65deg) rotateX(0deg) rotate(0deg);
+    }
+
+    to {
+        transform: rotateX(65deg) rotateY(360deg) rotate(360deg);
+    }
+}
+
+
+/* =========================
+   13. RESPONSIVE DESIGN
+========================= */
+
+@media (max-width: 480px) {
+    header {
+        padding-top: 22px;
+    }
+
+    main {
+        padding: 12px 14px 25px;
+        gap: 20px;
+    }
+
+    .scene {
+        width: min(100%, 320px);
+    }
+
+    .element-info {
+        padding: 16px;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        scroll-behavior: auto !important;
+        transition-duration: 0.01ms !important;
+    }
+}
